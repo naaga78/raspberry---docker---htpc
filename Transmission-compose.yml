@@ -8,8 +8,8 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
-      - USER=admin
-      - PASS=onthestep
+      - USER=
+      - PASS=
     volumes:
       - /home/pi/config/transmission:/config
       - /home/pi/Downloads:/downloads
