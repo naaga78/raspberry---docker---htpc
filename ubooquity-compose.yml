@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ubooquity:
+    image: linuxserver/ubooquity
+    container_name: ubooquity
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/pi/config/ubooquity:/config
+      - /media/f/eBook:/books
+      - /media/f/Comics:/comics
+    ports:
+      - 2202:2202
+      - 2203:2203
+    restart: unless-stopped

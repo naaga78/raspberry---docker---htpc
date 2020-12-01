@@ -1,0 +1,22 @@
+version: '2.0'
+services:
+    transmission-openvpn:
+        volumes:
+            - '/media/hdd:/data'
+        environment:
+            - OPENVPN_PROVIDER=NORDVPN
+            - OPENVPN_CONFIG=ca1020.nordvpn.com
+            - OPENVPN_USERNAME=XXXUSERXXX
+            - OPENVPN_PASSWORD=XXPASSWORDXXX
+            - WEBPROXY_ENABLED=false
+            - LOCAL_NETWORK=192.168.1.0/24
+        cap_add:
+            - NET_ADMIN
+        logging:
+            driver: json-file
+            options:
+                max-size: 10m
+        ports:
+            - '9091:9091'
+        image: haugene/transmission-openvpn:latest
+        restart: unless-stopped

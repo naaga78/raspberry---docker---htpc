@@ -1,0 +1,14 @@
+version: "3"
+services:
+  lamp:
+    image: mattrayner/lamp
+    container_name: lamp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/pi/app/:/app
+    ports:
+      - 88:80
+    restart: unless-stopped

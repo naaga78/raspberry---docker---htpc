@@ -1,0 +1,20 @@
+version: "3"
+services:
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022 #optional
+    volumes:
+      - /home/pi/config/sonarr:/config
+      - /media/g/Animes:/animes
+      - /media/e/Series:/Series
+      - /media/f/Series2:/Series2
+      - /media/g/Documentaires:/documentaires
+      - /media/g/Mini-series:/miniseries
+    ports:
+      - 8989:8989
+    restart: unless-stopped
